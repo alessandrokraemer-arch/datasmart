@@ -167,21 +167,21 @@ BEGIN
 	';
 	EXEC sp_executesql @Sql;
 END
+GO
 
 
 /****** ************************************** ******/
 
 
 /****** Object:  View [dbo].[viewAoFato] ******/
-
 CREATE VIEW [dbo].[viewAoFato]
 AS
-SELECT [NDS].dbo.RH.cnpjPK AS CNPJ, [NDS].dbo.RH.cidade AS CIDADE, [NDS].dbo.RH.estadoSiglaFK AS UF, 
-[NDS].dbo.Estado.paisSiglaFK AS PA, [NDS].dbo.Pais.nome AS PAÍS, [NDS].dbo.Caixa.saldo AS SALDO
-FROM [NDS].dbo.Pais INNER JOIN
-[NDS].dbo.Estado ON [NDS].dbo.Pais.siglaPK = [NDS].dbo.Estado.paisSiglaFK INNER JOIN
-[NDS].dbo.RH ON [NDS].dbo.Estado.siglaPK = [NDS].dbo.RH.estadoSiglaFK INNER JOIN
-[NDS].dbo.Caixa ON [NDS].dbo.RH.cnpjPK = [NDS].dbo.Caixa.cnpjFK
+	SELECT [NDS].dbo.RH.cnpjPK AS CNPJ, [NDS].dbo.RH.cidade AS CIDADE, [NDS].dbo.RH.estadoSiglaFK AS UF, 
+		[NDS].dbo.Estado.paisSiglaFK AS PA, [NDS].dbo.Pais.nome AS PAÍS, [NDS].dbo.Caixa.saldo AS SALDO
+		FROM [NDS].dbo.Pais INNER JOIN
+		[NDS].dbo.Estado ON [NDS].dbo.Pais.siglaPK = [NDS].dbo.Estado.paisSiglaFK INNER JOIN
+		[NDS].dbo.RH ON [NDS].dbo.Estado.siglaPK = [NDS].dbo.RH.estadoSiglaFK INNER JOIN
+		[NDS].dbo.Caixa ON [NDS].dbo.RH.cnpjPK = [NDS].dbo.Caixa.cnpjFK
 GO
 
 /****** VOCÊ PODE E DEVA APRIMORAR AO LONGO DO TEMPO ******/
